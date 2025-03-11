@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+    --primary-color: #fff1f1;
+    --secondary-color: rgb(70, 70, 70);
+    --text-color: #333;
+    --overlay-color: rgba(0, 0, 0, 0.5); /* Dim overlay color */
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    background-color: var(--primary-color);
+    color: rgb(88, 88, 88);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Hover effect */
+nav ul li a:hover {
+    color: #fff;
+    background-color: var(--secondary-color);
+}
+
+.parallax, .parallax1 {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden; /* Ensures overlay stays within bounds */
+}
+
+.parallax {
+    height: 85vh;
+}
+
+.parallax1 {
+    height:35vh; /* Adjusted height for consistency */
+    margin-top:10rem;
+}
+
+.parallax::before, .parallax1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color);
+    transition: background 0.3s ease;
+    z-index: 1; /* Position overlay above background but below text */
+}
+
+.parallax:hover::before, .parallax1:hover::before {
+    background: transparent; /* Reveal background on hover */
+}
+
+.parallax .content, .parallax1 .content {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2;
+}
+
+.parallax h1 {
+    font-size: 10rem; /* Increase text size */
+    margin: 0;
+}
+
+.parallax1 h1 {
+    font-size: 5rem; /* Increase text size */
+    margin: 0;
+}
+
+.parallax p, .parallax1 p {
+    font-size: 1.25rem; /* Increase paragraph text size */
+}
+
+#about-description, #education-description, #contact-description {
+    padding: 2rem;
+}
+
+.description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-picture {
+    width: 400px; /* Increased width */
+    height: 300px; /* Increased height */
+    border-radius: 10px; /* Rectangular shape */
+    object-fit: cover;
+}
+
+.hobby-picture {
+    width: 300px; /* Adjust width for hobby images */
+    height: 200px; /* Adjust height for hobby images */
+    border-radius: 10px; /* Rectangular shape */
+    object-fit: cover;
+}
+
+.description-text {
+    max-width: 600px;
+}
+
+.description-text h2 {
+    font-size: 2rem;
+}
+
+.description-text h3 {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+}
+
+.description-text p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.education {
+    padding: 2rem;
+    text-align: center;
+}
+
+.education h1 {
+    font-size: 2.5rem; /* Increase heading size */
+}
+
+.hobbies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.card {
+    display: inline-block;
+    width: 300px;
+    height: 250px; /* Adjusted height for hobbies */
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover .card-info {
+    transform: translateY(0);
+}
+
+.contact {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--primary-color); /* Changed to primary color */
+    color: var(--text-color);
+}
+
+.contact h1 {
+    font-size: 2rem; /* Increase heading size */
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact ul li {
+    font-size: 1.25rem; /* Adjust font size for better readability */
+    margin: 0.5rem 0;
+}
+
+.contact ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.contact ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2b4b4;
+    color: rgb(99, 94, 94);
+    margin-top: 5rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .description-container {
+        flex-direction: column;
+        align-items: center; /* Center items on smaller screens */
+    }
+
+    .profile-picture, .hobby-picture {
+        width: 150px;
+        height: 150px;
+    }
+}
